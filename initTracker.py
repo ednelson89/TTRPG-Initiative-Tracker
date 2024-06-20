@@ -35,18 +35,23 @@ def main():
 
         match command:
             case "1":  # 1 Display current order
+                clear()
                 list_order()
                 input()
             case "2":  # 2 Add a Character
+                clear()
                 add_char()
                 input()
             case "3":  # 3 Change a characters initiative
+                clear()
                 update_init()
                 input()
             case "4":  # 4 Remove a character from the initiative order
+                clear()
                 del_char()
                 input()
             case "0":
+                clear()
                 print("Thank you for using the Initiative Tracker")
                 run = False
 
@@ -85,7 +90,7 @@ def add_char():
     print("Please enter a character name (required):")
     tempChar = input()
     if not tempChar:
-        print("Character name required. Please try again.")
+        print("Character name required. Returning to menu.")
         return
 
     print("Please enter initiative:")
