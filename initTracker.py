@@ -19,7 +19,7 @@ if len(sys.argv) == 2 and sys.argv[1] == "test":
     initiative_tracker.append(Character("test3", 18, 2))
     initiative_tracker.append(Character("test4", 5, 1))
     initiative_tracker.append(Character("test5", 5, 2))
-    initiative_tracker.append(Character("test5", 10, 0))
+    initiative_tracker.append(Character("test6", 10, 0))
 
 
 def main():
