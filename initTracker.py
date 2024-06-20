@@ -2,10 +2,11 @@ import sys
 
 
 class Character:
-    def __init__(self, name, initiative, dexMod):
+    def __init__(self, name, initiative, dexMod, manualSet):
         self.name = name
         self.initiative = initiative
         self.dexMod = dexMod
+        self.manualSet = manualSet
 
 
 initiative_tracker = []
@@ -14,12 +15,12 @@ test_mode = False
 # For test/demo purposes, allow a command line arg to populate the order
 if len(sys.argv) == 2 and sys.argv[1] == "test":
     test_mode = True
-    initiative_tracker.append(Character("test1", 20, 0))
-    initiative_tracker.append(Character("test2", 18, 1))
-    initiative_tracker.append(Character("test3", 18, 2))
-    initiative_tracker.append(Character("test4", 5, 1))
-    initiative_tracker.append(Character("test5", 5, 2))
-    initiative_tracker.append(Character("test6", 10, 0))
+    initiative_tracker.append(Character("test1", 20, 0, 0))
+    initiative_tracker.append(Character("test2", 18, 1, 0))
+    initiative_tracker.append(Character("test3", 18, 2, 0))
+    initiative_tracker.append(Character("test4", 5, 1, 0))
+    initiative_tracker.append(Character("test5", 5, 1, 1))
+    initiative_tracker.append(Character("test6", 10, 0, 2))
 
 
 def main():
@@ -69,6 +70,7 @@ def list_order():
 
 
 def sort_order():
+    initiative_tracker.sort(key=lambda x: x.manualSet, reverse=False)
     initiative_tracker.sort(key=lambda x: x.dexMod, reverse=True)
     initiative_tracker.sort(key=lambda x: x.initiative, reverse=True)
 
@@ -99,7 +101,15 @@ def add_char():
     if not tempDex:
         tempDex = 0
 
-    initiative_tracker.append(Character(tempChar, int(tempInit), int(tempDex)))
+    tempSet = input(
+        "If multiple characters have the same initiative and dex mod,\n manually set where in the order they go.\n Lower numbers go first. Otherwise, just hit enter:"
+    )
+    if not tempSet:
+        tempSet = 0
+
+    initiative_tracker.append(
+        Character(tempChar, int(tempInit), int(tempDex), int(tempSet))
+    )
     print(f"You've added {tempChar} to the initiative order.")
     update_init_msg(True)
 
@@ -114,6 +124,7 @@ def update_init():
             match = True
             entry.initiative = int(input("Enter the new initiative value:"))
             entry.dexMod = int(input("Enter the new dex mod value:"))
+            entry.manualSet = int(input("Enter the new manual set value:"))
 
     update_init_msg(match)
 
