@@ -81,25 +81,21 @@ def instruction_query():
     print("4. Remove a character from the initiative order")
     print("0. EXIT")
 
-    print("Please enter the number of the option you'd like:")
-    in_number = input()
+    in_number = input("Please enter the number of the option you'd like:")
     return in_number
 
 
 def add_char():
-    print("Please enter a character name (required):")
-    tempChar = input()
+    tempChar = input("Please enter a character name (required):")
     if not tempChar:
         print("Character name required. Returning to menu.")
         return
 
-    print("Please enter initiative:")
-    tempInit = input()
+    tempInit = input("Please enter initiative:")
     if not tempInit:
         tempInit = 0
 
-    print("Please enter dex mod:")
-    tempDex = input()
+    tempDex = input("Please enter dex mod:")
     if not tempDex:
         tempDex = 0
 
@@ -109,31 +105,26 @@ def add_char():
 
 
 def update_init():
-    print(
+    tempChar = input(
         "Please enter the name of the character whose initiative you would like to change:"
     )
-    tempChar = input()
     match = False
     for entry in initiative_tracker:
         if entry.name == tempChar:
             match = True
-            print("Enter the new initiative value:")
-            entry.initiative = int(input())
-            print("Enter the new dex mod value:")
-            entry.dexMod = int(input())
+            entry.initiative = int(input("Enter the new initiative value:"))
+            entry.dexMod = int(input("Enter the new dex mod value:"))
 
     update_init_msg(match)
 
 
 def del_char():
-    print("Please enter a character name:")
-    tempChar = input()
+    tempChar = input("Please enter a character name:")
     match = False
     for ind, entry in enumerate(initiative_tracker):
         if entry.name == tempChar:
             match = True
-            print(f"Are you sure you want to delete: {entry.name}? (y/n, yes/no)")
-            ans = input()
+            ans = input(f"Are you sure you want to delete: {entry.name}? (y/n, yes/no)")
             if ans == "y" or ans == "yes":
                 del initiative_tracker[ind]
 
