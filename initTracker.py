@@ -93,19 +93,14 @@ def add_char():
         print("Character name required. Returning to menu.")
         return
 
-    tempInit = input("Please enter initiative: ")
-    if not tempInit:
-        tempInit = 0
-
-    tempDex = input("Please enter dex mod: ")
-    if not tempDex:
-        tempDex = 0
-
-    tempSet = input(
-        "If multiple characters have the same initiative and dex mod,\n manually set where in the order they go. Lower numbers go first.\n Otherwise, just hit enter:"
+    tempInit = int(input("Please enter initiative: ") or 0)
+    tempDex = int(input("Please enter dex mod: ") or 0)
+    tempSet = int(
+        input(
+            "If multiple characters have the same initiative and dex mod,\n manually set where in the order they go. Lower numbers go first.\n Otherwise, just hit enter:"
+        )
+        or 0
     )
-    if not tempSet:
-        tempSet = 0
 
     initiative_tracker.append(
         Character(tempChar, int(tempInit), int(tempDex), int(tempSet))
