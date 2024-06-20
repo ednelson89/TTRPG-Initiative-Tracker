@@ -110,13 +110,10 @@ def add_char():
 
 
 def update_init():
-    tempList = ""
     print(
         "Please enter the name of the character whose initiative you would like to change: "
     )
-    for entry in initiative_tracker:
-        tempList += entry.name + ", "
-    print(tempList[:-2])
+    print(get_name_list())
     tempChar = input()
 
     match = False
@@ -137,7 +134,10 @@ def update_init():
 
 
 def del_char():
-    tempChar = input("Please enter a character name: ")
+    print("Please enter a character name: ")
+    print(get_name_list())
+    tempChar = input()
+
     match = False
     for ind, entry in enumerate(initiative_tracker):
         if entry.name == tempChar:
@@ -156,6 +156,13 @@ def update_init_msg(match):
         print("Failed to find a character with that name; check your spelling.")
     else:
         print("Updated the initiative order.")
+
+
+def get_name_list():
+    tempList = ""
+    for entry in initiative_tracker:
+        tempList += entry.name + ", "
+    return tempList[:-2]
 
 
 def clear():
