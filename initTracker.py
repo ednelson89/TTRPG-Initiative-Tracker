@@ -15,12 +15,12 @@ test_mode = False
 # For test/demo purposes, allow a command line arg to populate the order
 if len(sys.argv) == 2 and sys.argv[1] == "test":
     test_mode = True
-    initiative_tracker.append(Character("test1", 20, 0, 0))
-    initiative_tracker.append(Character("test2", 18, 1, 0))
-    initiative_tracker.append(Character("test3", 18, 2, 0))
-    initiative_tracker.append(Character("test4", 5, 1, 0))
-    initiative_tracker.append(Character("test5", 5, 1, 1))
-    initiative_tracker.append(Character("test6", 10, 0, 2))
+    initiative_tracker.append(Character("Starost", 20, 0, 0))
+    initiative_tracker.append(Character("Lisp", 18, 1, 0))
+    initiative_tracker.append(Character("Trapspringer", 18, 2, 0))
+    initiative_tracker.append(Character("Eirikr", 5, 1, 0))
+    initiative_tracker.append(Character("Kalevin", 5, 1, 1))
+    initiative_tracker.append(Character("Llewyn", 10, 0, 2))
 
 
 def main():
