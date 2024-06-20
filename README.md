@@ -1,6 +1,6 @@
 # TTRPG-Initiative-Tracker
 
-Command Line Utility for tracking a 5e character's initiatives in an encounter.
+Command Line Utility for tracking a character's initiatives in an encounter in D&D 5e.
 
 To run this utility, you need to install Python3 on your computer:
 
