@@ -102,7 +102,7 @@ def add_char():
         tempDex = 0
 
     tempSet = input(
-        "If multiple characters have the same initiative and dex mod,\n manually set where in the order they go.\n Lower numbers go first. Otherwise, just hit enter:"
+        "If multiple characters have the same initiative and dex mod,\n manually set where in the order they go. Lower numbers go first.\n Otherwise, just hit enter:"
     )
     if not tempSet:
         tempSet = 0
