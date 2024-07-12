@@ -15,3 +15,8 @@ From the folder in which you have the initTracker.py file, run:
 
 There is also a test/demo mode that has a prepopulated list of characters:
 `python initTracker.py test`
+
+---
+
+To import a party, place a .txt file in the PartyLists that contains the party names and dex modifiers, delimited by a comma. Do not include spaces.
+ex. `Lankas,2,Imryll,2,Tealandra,3,Kalos,3,Kazu,1`

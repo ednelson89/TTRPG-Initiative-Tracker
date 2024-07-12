@@ -51,6 +51,10 @@ def main():
                 clear()
                 del_char()
                 input()
+            case "5":  # 5 Open a party file
+                clear()
+                import_party()
+                input()
             case "0":
                 clear()
                 print("Thank you for using the Initiative Tracker")
@@ -81,6 +85,7 @@ def instruction_query():
     print("2. Add a Character")
     print("3. Change a character's initiative")
     print("4. Remove a character from the initiative order")
+    print("5. Import a party from a .txt file")
     print("0. EXIT")
 
     in_number = input("Please enter the number of the option you'd like: ")
@@ -163,6 +168,38 @@ def get_name_list():
     for entry in initiative_tracker:
         tempList += entry.name + ", "
     return tempList[:-2]
+
+
+def import_party():
+    tempName = get_party_name()
+    tempText = load_party_file(tempName)
+    tempText = tempText.split(",")
+    tempName = ""
+    tempMod = 0
+    for ind, entry in enumerate(tempText):
+        if ind % 2 == 0:
+            tempName = entry
+        else:
+            tempMod = entry
+            initiative_tracker.append(
+                Character(tempName, int(10), int(tempMod), int(0))
+            )
+
+    list_order()
+
+
+def get_party_name():
+    return input("Please input the name of the party you wish to load: ")
+
+
+def load_party_file(partyName):
+    temp_Path = f"PartyLists/{partyName}.txt"
+    try:
+        with open(temp_Path) as f:
+            return f.read()
+    except:
+        print("Oops, the party name does not exist, please try again.")
+        return ""
 
 
 def clear():
