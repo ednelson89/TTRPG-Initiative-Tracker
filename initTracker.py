@@ -52,9 +52,13 @@ def main():
                 clear()
                 del_char()
                 input()
-            case "5":  # 5 Open a party file
+            case "5":  # 5 Import a party file
                 clear()
                 import_party()
+                input()
+            case "6":  # 6 Export party file
+                clear()
+                export_party()
                 input()
             case "0":
                 clear()
@@ -86,7 +90,8 @@ def instruction_query():
     print("2. Add a Character")
     print("3. Change a character's initiative")
     print("4. Remove a character from the initiative order")
-    print("5. Import a party from a .txt file")
+    print("5. Import a party from a .json file")
+    print("6. Export a party to a .json file")
     print("0. EXIT")
 
     in_number = input("Please enter the number of the option you'd like: ")
@@ -179,9 +184,9 @@ def import_party():
         initiative_tracker.append(
             Character(
                 entry["name"],
-                int(entry["init"]),
-                int(entry["dex"]),
-                int(entry["override"]),
+                int(entry["initiative"]),
+                int(entry["dexMod"]),
+                int(entry["manualSet"]),
             )
         )
 
@@ -200,6 +205,17 @@ def load_party_file(partyName):
     except:
         print("Oops, the party name does not exist, please try again.")
         return ""
+
+
+def export_party():
+    party_name = input("Please input the name you wish to save this party as: ")
+    temp_data = json.dumps(initiative_tracker, default=lambda x: x.__dict__)
+    with open(f"PartyLists/{party_name}.json", "w") as outfile:
+        outfile.write(temp_data)
+    clear()
+    print(
+        f"Export Complete. You can find your save file for the party name {party_name} in the PartyLists subdirectory."
+    )
 
 
 def clear():

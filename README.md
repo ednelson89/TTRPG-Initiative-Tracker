@@ -18,19 +18,18 @@ There is also a test/demo mode that has a prepopulated list of characters:
 
 ---
 
-To import a party, place a .json file in the PartyLists that contains the party names, initiatives, dex modifiers, and tie override value (lower goes first). Do not include spaces.
-ex.
+To import a party, place a .json file in the PartyLists folder that contains the party names, initiatives, dex modifiers, and tie override (manualSet) value (lower goes first). ex.
 `[
   {
     "name": "Lankas",
-    "init": 10,
-    "dex": 2,
-    "override": 0
+    "initiative": 10,
+    "dexMod": 2,
+    "manualSet": 0
   },
   {
     "name": "Imryll",
-    "init": 10,
-    "dex": 2,
-    "override": 0
+    "initiative": 10,
+    "dexMod": 2,
+    "manualSet": 0
   }
 ]`
