@@ -33,3 +33,5 @@ To import a party, place a .json file in the PartyLists folder that contains the
     "manualSet": 0
   }
 ]`
+
+Exporting a party will create a .json save file in the PartyLists folder for future reference.
