@@ -1,5 +1,6 @@
 import sys
 import json
+import os
 
 
 class Character:
@@ -203,6 +204,17 @@ def import_party():
 
 
 def get_party_name():
+    # Get a list of Save Files for Ease of Use
+    filePath = "./PartyLists/"
+    filesList = []
+    files = os.listdir(filePath)
+    for file in files:
+        temp = file.removesuffix(".json")
+        filesList.append(temp)
+
+    # Output the list so that users can reference the options
+    print("Party/Encounter Names:")
+    print(*filesList, sep=", ")
     return input(
         "Please input the name of the party you wish to load (ex. Wanderers): "
     )
