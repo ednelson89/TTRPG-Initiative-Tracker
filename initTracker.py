@@ -199,7 +199,8 @@ def import_party():
                 int(entry["manualSet"]),
             )
         )
-
+    clear()
+    print("File Imported")
     list_order()
 
 
