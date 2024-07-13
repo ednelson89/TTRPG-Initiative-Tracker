@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Lankas",
+    "init": 10,
+    "dex": 2,
+    "override": 0
+  },
+  {
+    "name": "Imryll",
+    "init": 10,
+    "dex": 2,
+    "override": 0
+  },
+  {
+    "name": "Tealandra",
+    "init": 10,
+    "dex": 3,
+    "override": 0
+  },
+  {
+    "name": "Kalos",
+    "init": 10,
+    "dex": 3,
+    "override": 0
+  },
+  {
+    "name": "Kazu",
+    "init": 10,
+    "dex": 1,
+    "override": 0
+  }
+]

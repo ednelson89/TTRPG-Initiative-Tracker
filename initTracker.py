@@ -1,4 +1,5 @@
 import sys
+import json
 
 
 class Character:
@@ -173,17 +174,16 @@ def get_name_list():
 def import_party():
     tempName = get_party_name()
     tempText = load_party_file(tempName)
-    tempText = tempText.split(",")
-    tempName = ""
-    tempMod = 0
-    for ind, entry in enumerate(tempText):
-        if ind % 2 == 0:
-            tempName = entry
-        else:
-            tempMod = entry
-            initiative_tracker.append(
-                Character(tempName, int(10), int(tempMod), int(0))
+
+    for entry in tempText:
+        initiative_tracker.append(
+            Character(
+                entry["name"],
+                int(entry["init"]),
+                int(entry["dex"]),
+                int(entry["override"]),
             )
+        )
 
     list_order()
 
@@ -193,10 +193,10 @@ def get_party_name():
 
 
 def load_party_file(partyName):
-    temp_Path = f"PartyLists/{partyName}.txt"
+    temp_Path = f"PartyLists/{partyName}.json"
     try:
-        with open(temp_Path) as f:
-            return f.read()
+        f = open(temp_Path)
+        return json.load(f)
     except:
         print("Oops, the party name does not exist, please try again.")
         return ""
