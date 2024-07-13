@@ -194,7 +194,9 @@ def import_party():
 
 
 def get_party_name():
-    return input("Please input the name of the party you wish to load: ")
+    return input(
+        "Please input the name of the party you wish to load (ex. Wanderers): "
+    )
 
 
 def load_party_file(partyName):
@@ -208,7 +210,9 @@ def load_party_file(partyName):
 
 
 def export_party():
-    party_name = input("Please input the name you wish to save this party as: ")
+    party_name = input(
+        "Please input the name you wish to save this party as (ex. 6kobolds): "
+    )
     temp_data = json.dumps(initiative_tracker, default=lambda x: x.__dict__)
     with open(f"PartyLists/{party_name}.json", "w") as outfile:
         outfile.write(temp_data)
