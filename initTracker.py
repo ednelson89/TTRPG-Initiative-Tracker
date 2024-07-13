@@ -132,13 +132,22 @@ def update_init():
         if entry.name == tempChar:
             match = True
             entry.initiative = int(
-                input("Enter the new initiative value (entering will set to 0): ") or 0
+                input(
+                    "Enter the new initiative value (providing no value will set to 0): "
+                )
+                or 0
             )
             entry.dexMod = int(
-                input("Enter the new dex mod value (entering will set to 0): ") or 0
+                input(
+                    "Enter the new dex mod value (providing no value will set to 0): "
+                )
+                or 0
             )
             entry.manualSet = int(
-                input("Enter the new manual set value (entering will set to 0): ") or 0
+                input(
+                    "Enter the new manual set value (providing no value will set to 0): "
+                )
+                or 0
             )
 
     update_init_msg(match)
